@@ -6,7 +6,11 @@ Octane11 code challenge
 
 `pip install .`
 
-## USage examples:
+## Run all tests
+
+`python -m pytest tests`
+
+## Usage examples:
 
 ### Export
 
