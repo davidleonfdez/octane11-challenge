@@ -16,7 +16,7 @@ Octane11 code challenge
 
 Print the daily exchange rates between 2021-02-01 and 2021-02-02 from USD to EUR and USD to CAD:
 
-`python exrates.py --start 2021-02-01 --end 2021-02-02 --base USD --symbol EUR CAD`
+`python src/octanexchange/exrates.py history --start 2021-02-01 --end 2021-02-02 --base USD --symbol EUR CAD`
 
 Output:
 
