@@ -42,7 +42,6 @@ class FrankfurterHttpExchangesRepository(BaseExchangesRepository):
 
             response_dict = response.json()
             rates_dict:dict = response_dict[RATES_KEY]
-            map(map, rates_dict.items())
             return [
                 ExchangeRate(
                     date.fromisoformat(date_str),
