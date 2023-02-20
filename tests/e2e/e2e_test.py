@@ -43,6 +43,33 @@ def test_history():
         if f is not None: f.close()
 
 
+def test_history_empty():
+    # This is different than a unit test for the same situation because a networking
+    # library raises an error when the response is empty.
+    f = None
+    try:
+        f = tempfile.NamedTemporaryFile(suffix='.jsonl', delete=False)
+        cmd = [
+            "python", 
+            script_path, 
+            "history", 
+            "--start", 
+            "2022-02-19", 
+            "--end", 
+            "2022-02-19", 
+            "--symbol", 
+            "CAD", 
+            "--output",
+            f.name,
+        ]
+        subprocess.run(cmd)
+
+        json_lines = f.readlines()
+        assert len(json_lines) == 0
+    finally:
+        if f is not None: f.close()
+
+
 def test_convert():
     cmd = ["python", script_path, "convert", "--date", "2021-03-01", "--base", "EUR", "--symbol", "USD", "--amount", "10"]
     out = subprocess.run(cmd, stdout=subprocess.PIPE).stdout.decode('utf-8')
